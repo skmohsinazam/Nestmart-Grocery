@@ -1,0 +1,142 @@
+.carousell {
+    margin-top: 6px;
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    border-radius: 15px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.carousell-inner {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+}
+
+.carousell-item {
+    min-width: 100%;
+    position: relative;
+}
+
+.carousell-item img {
+    width: 100%;
+    border-radius: 15px;
+    opacity: 0.9;
+}
+
+.carousell-content {
+    position: absolute;
+    top: 50%;
+    left: 10%;
+    transform: translateY(-50%);
+    color: #2f422a;
+    max-width: 50%;
+    padding: 20px;
+}
+
+.carousell-content h1 {
+    font-size: 2.2rem;
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+
+.carousell-content p {
+    font-size: 1.4rem;
+    margin-bottom: 15px;
+}
+
+/* Style adjustments for subscribe form */
+.subscribee-form {
+    display: flex;
+    gap: 0;
+}
+
+.subscribee-form input {
+    padding: 8px;
+    font-size: 1.3rem;
+    border: 1px solid #ccc;
+    border-radius: 50px 0 0 50px; /* More rounded on the left side */
+    flex: 1;
+    min-width: 150px;
+    outline: none;
+}
+
+.subscribee-form button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 8px 16px;
+    font-size: 1.3rem;
+    border: none;
+    border-radius: 0 50px 50px 0; /* Fully rounded on the right side */
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.subscribee-form button:hover {
+    background-color: #45a049;
+}
+
+
+.carousell-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: transparent;
+    color: #fff;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    font-size: 1.9rem;
+    border-radius: 50%;
+    z-index: 1;
+}
+
+.prev {
+    left: 10px;
+}
+
+.next {
+    right: 10px;
+}
+
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .carousell-content {
+        max-width: 70%;
+        padding: 15px;
+    }
+
+    .carousell-content h1 {
+        font-size: 1.2rem;
+    }
+
+    .carousell-content p {
+        font-size: 0.8rem;
+    }
+
+    .subscribee-form button {
+        padding: 6px 12px;
+        font-size: 0.7rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .carousell-content {
+        max-width: 85%;
+        left: 5%;
+        padding: 10px;
+    }
+
+    .carousell-content h1 {
+        font-size: 0.9rem;
+    }
+
+    .carousell-content p {
+        font-size: 0.6rem;
+    }
+
+    .subscribee-form input,
+    .subscribee-form button {
+        font-size: 0.5rem;
+    }
+}

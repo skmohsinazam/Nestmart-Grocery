@@ -1,0 +1,286 @@
+/* Basic Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f9f9f9;
+}
+
+/* Header */
+.page-header {
+  background-color: #27ae60;
+  color: #fff;
+  text-align: center;
+  padding: 20px;
+  border-radius: 10px;
+  margin: 20px;
+  font-size: 24px;
+  font-weight: bold;
+}
+
+/* Footer */
+.page-footer {
+  background-color: #27ae60;
+  color: #fff;
+  text-align: center;
+  padding: 15px;
+  border-radius: 10px;
+  margin: 20px;
+  font-size: 14px;
+}
+
+/* Search Bar */
+.search-bar-container {
+  display: flex;
+  justify-content: center;
+  margin: 20px 0;
+}
+
+.search-bar {
+  width: 80%;
+  max-width: 500px;
+  padding: 10px 15px;
+  border: 1px solid #e0e0e0;
+  border-radius: 20px;
+  font-size: 16px;
+  outline: none;
+  transition: box-shadow 0.3s ease;
+}
+
+.search-bar:focus {
+  box-shadow: 0 0 8px rgba(39, 174, 96, 0.5);
+  border-color: #27ae60;
+}
+
+/* Filters Sidebar */
+.filter-sidebar {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.filter-sidebar h4 {
+  font-size: 18px;
+  color: #333;
+  margin-bottom: 15px;
+}
+
+.form-label {
+  color: #888;
+  font-size: 14px;
+}
+
+.form-select, .btn-primary {
+  border-radius: 5px;
+  border-color: #e0e0e0;
+  background-color: #27ae60;
+  color: #fff;
+}
+
+.btn-primary:hover {
+  background-color: #219150;
+  border-color: #219150;
+}
+
+/* Product Grid */
+.product-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: left;
+}
+
+/* Product Card */
+.product-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+  max-width: 250px;
+  min-width: 200px;
+  padding: 16px;
+  border: 1px solid #e0e0e0;
+  border-radius: 10px;
+  background-color: #fff;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  margin: 10px;
+  position: relative; /* Ensure contents are positioned relative to the card */
+}
+
+.discount-tag {
+  position: absolute;
+  top: 8px;
+  left: 8px;
+  background-color: #27ae60;
+  color: #fff;
+  padding: 5px 10px;
+  border-radius: 5px;
+  font-size: 12px;
+  font-weight: bold;
+}
+
+.discount-tag.right {
+  left: auto;
+  right: 8px;
+}
+
+.product-image {
+  width: 100%;
+  max-width: 150px;
+  height: auto;
+  border-radius: 5px;
+  margin-bottom: 16px;
+}
+
+.product-details {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  text-align: left;
+}
+.category {
+  font-size: 12px;
+  color: #888;
+}
+
+.product-name {
+  font-size: 16px;
+  color: #333;
+  margin: 8px 0;
+}
+
+.rating {
+  display: flex;
+  align-items: center;
+  font-size: 14px;
+  color: #f1c40f;
+}
+
+.rating-count {
+  font-size: 12px;
+  color: #888;
+  margin-left: 5px;
+}
+
+.price {
+  margin-top: auto;
+  display: flex;
+  align-items: center;
+}
+
+.current-price {
+  font-size: 18px;
+  font-weight: bold;
+  color: #27ae60;
+}
+
+.old-price {
+  font-size: 14px;
+  color: #888;
+  text-decoration: line-through;
+  margin-left: 8px;
+}
+
+/* Add to Cart Button */
+.add-to-cart {
+  margin-top: auto; /* Pushes "Add to Cart" to the bottom */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  padding: 10px;
+  background-color: #27ae60;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  font-size: 14px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.add-to-cart:hover {
+  background-color: #219150;
+}
+
+.cart-icon {
+  margin-right: 5px;
+}
+.txt-length{
+  max-width: 200px; 
+  height: fit-content;
+  white-space: nowrap; 
+  overflow: hidden;
+  text-overflow: ellipsis; 
+ 
+}
+/* Responsive Styles */
+@media (max-width: 992px) {
+  .product-grid {
+    flex-direction: row;
+    justify-content: center;
+  }
+
+  .product-card {
+    max-width: 300px;
+  }
+
+  .product-image {
+    max-width: 120px;
+  }
+}
+
+@media (max-width: 768px) {
+  .page-header, .page-footer {
+    margin: 10px;
+    padding: 15px;
+    font-size: 20px;
+  }
+
+  .search-bar-container {
+    width: 100%;
+    padding: 0 10px;
+  }
+
+  .search-bar {
+    width: 100%;
+    max-width: none;
+  }
+
+  .filter-sidebar {
+    width: 100%;
+    margin: 0 10px 20px;
+    box-shadow: none;
+  }
+
+  .product-card {
+    max-width: 100%;
+    margin-bottom: 20px;
+    padding: 10px;
+  }
+
+  .product-image {
+    max-width: 100px;
+  }
+
+  .product-name {
+    font-size: 14px;
+  }
+
+  .current-price {
+    font-size: 16px;
+  }
+
+  .old-price {
+    font-size: 12px;
+  }
+
+  .add-to-cart {
+    font-size: 13px;
+  }
+}

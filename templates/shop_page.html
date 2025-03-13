@@ -1,0 +1,78 @@
+{%extends "base.html"%}
+{%block content %}
+<header class="page-header">
+  <h1>Shop with Us</h1>
+</header>
+
+<div class="container my-2">
+  <form method="GET" action="">
+    <div class="row">
+      <div class="col-md-4 ">
+        <label for="priceRange" class="form-label">Filter by Price:</label>
+        <select class="form-select" name="priceRange" id="priceRange" onchange="this.form.submit()">
+          <option value="all">All</option>
+          <option value="0-50" >₹0 - ₹50</option>
+          <option value="51-100" >₹51 - ₹100</option>
+          <option value="101-200" >₹101 - ₹200</option>
+          <option value="201-500" >₹201 - $500</option>
+          <option value="500+" >Above ₹500</option>
+        </select>
+      </div>
+    </div>
+  </form>
+</div>
+
+<div class="container my-2">
+  <div class="row">
+ 
+    <section class="col-md-12 product-grid">
+      <div class="row">
+        {% if Products %}
+            {% for product in Products %}
+                <div class="col-12 col-sm-4 col-md-4 col-lg-3 mb-4 ">
+                    <div class="product-card mx-3">
+                        <!-- Clickable Product Card -->
+                        <a href="{% url 'product_detail' product.id %}" class="text-decoration-none">
+                            <div class="product">
+                                <!-- Product Image -->
+                                <img src="{{ product.pimg.url }}" alt="{{ product.pname }}" class="product-image">
+                                
+                                <!-- Product Details -->
+                                <div class="product-details">
+                                    <h5 class="product-name txt-length">{{ product.pname }}</h5>
+                                    <div class="price">
+                                        <span class="current-price">₹{{ product.pdiscpri }}</span>
+                                        {% if product.pdiscpri < product.pprice %}
+                                            <span class="old-price">₹{{ product.pprice }}</span>
+                                        {% endif %}
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+    
+                        <!-- BUY NOW Button (kept outside clickable product card) -->
+                        <!-- <div class="d-flex justify-content-center">
+                            <a href="" class="text-decoration-none">
+                                <button class="btn btn-success px-2 py-2 shadow-lg rounded-pill text-white hover-shadow" style="background-color:#0ca838;">
+                                    BUY NOW
+                                </button>
+                            </a>
+                        </div> -->
+                        <div class="d-flex justify-content-center">
+                                                
+                        <a href="{% url 'add_to_cart' product.id %}" class="btn btn-success px-2 py-2 shadow-lg rounded-pill text-white hover-shadow" style="background-color:#0ca838;">Add to Cart</a>
+                          </div>
+                    </div>
+                </div>
+                
+            {% endfor %}
+        {% else %}
+            <p class="text-center">No products available.</p>
+        {% endif %}
+    </div>
+    </section>
+
+  </div>
+</div>
+
+{%endblock%}

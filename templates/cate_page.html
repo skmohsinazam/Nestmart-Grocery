@@ -1,0 +1,70 @@
+{%extends "base.html"%}
+{%block content %}
+<header class="page-header">
+  <h1>Shop with Us</h1>
+</header>
+
+<div class="container my-2">
+    <form method="GET" action="">
+        <div class="row">
+            <div class="col-md-4">
+                <label for="priceRange" class="form-label">Filter by Price:</label>
+                <select class="form-select" name="priceRange" id="priceRange" onchange="this.form.submit()">
+                    <option value="all" {% if selected_price == 'all' %}selected{% endif %}>All</option>
+                    <option value="0-50" {% if selected_price == '0-50' %}selected{% endif %}>₹0 - ₹50</option>
+                    <option value="51-100" {% if selected_price == '51-100' %}selected{% endif %}>₹51 - ₹100</option>
+                    <option value="101-200" {% if selected_price == '101-200' %}selected{% endif %}>₹101 - ₹200</option>
+                    <option value="201-500" {% if selected_price == '201-500' %}selected{% endif %}>₹201 - ₹500</option>
+                    <option value="500+" {% if selected_price == '500+' %}selected{% endif %}>Above ₹500</option>
+                </select>
+            </div>
+        </div>
+    </form>
+    
+</div>
+
+<div class="container my-2">
+    <section class="product-grid">
+        <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-4">  
+            {% if product %}
+                {% for product in product %}
+                    <div class="col d-flex align-items-stretch"> 
+                        <div class="product-card mx-3 shadow-lg p-3 rounded"> 
+                            <a href="{% url 'product_detail' product.id %}" class="text-decoration-none">
+                                <div class="product text-center">
+                                    <!-- Product Image -->
+                                    <img src="{{ product.pimg.url }}" alt="{{ product.pname }}" class="product-image img-fluid">
+                                    
+                                    <!-- Product Details -->
+                                    <div class="product-details">
+                                        <h5 class="product-name txt-length">{{ product.pname }}</h5>
+                                        <div class="price">
+                                            <span class="current-price text-success fw-bold">₹{{ product.pdiscpri }}</span>
+                                            {% if product.pdiscpri < product.pprice %}
+                                                <span class="old-price text-muted text-decoration-line-through">₹{{ product.pprice }}</span>
+                                            {% endif %}
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+
+                            <!-- BUY NOW Button -->
+                            <div class="d-flex justify-content-center mt-2">
+                                <a href="{% url 'add_to_cart' product.id %}" class="btn btn-success px-3 py-2 shadow-lg rounded-pill text-white hover-shadow" style="background-color:#0ca838;">
+                                    Add to Cart
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+            {% else %}
+                <p class="text-center">No products available.</p>
+            {% endif %}
+        </div>
+    </section>
+</div>
+
+
+
+
+{%endblock%}

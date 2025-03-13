@@ -1,0 +1,45 @@
+{%extends "base.html"%}
+{%block content %}
+    <section>
+        <div class="container hero-section">
+            <div class="row align-items-center">
+                <div class="col-lg-6 hero-image">
+                    <img src="/static/images/about-1.png" alt="Woman with Green Apron" class="img-fluid">
+                </div>
+                <div class="col-lg-6 hero-text">
+                    <h1>Welcome to Nest</h1>
+                   <p>
+                   Welcome to Nestmart – your one-stop shop for all your grocery needs! At Nestmart, we believe in making your shopping experience simple, convenient, and affordable. With a wide range of fresh produce, pantry essentials, organic items, and household products, we offer everything you need to fill your home with quality goods.
+                We understand the importance of offering products that you can trust, which is why we carefully select our offerings from trusted suppliers. Whether you're preparing a family meal or stocking up for the week, we have you covered.
+                At Nestmart, we’re not just about groceries; we’re about building a community that values healthy living, sustainability, and supporting local producers. Our mission is to provide fresh, quality groceries right at your doorstep with unbeatable prices and excellent customer service.
+                Thank you for choosing Nestmart! We’re here to help you nourish your home and make every meal a delightful experience.
+                   </p>
+                </div>
+            </div>
+        </div>
+        <div class="container my-5 about-1">
+            <div class="">
+                <p class="display-6 fw-bold ">What we provide?</p>
+                <img src="/static/img/wave.png" alt="" class="mx-auto d-block " width="250vh">
+            </div>
+            
+            <div class="row">
+            {%for about in About%}
+                <div class="col-12 col-sm-6 col-md-6 col-lg-6">
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <img src="{{about.img.url}}" alt="{{about.title}}">
+                        </div>
+                        <h5 class="feature-title">{{about.title}}</h5>
+                        <p class="feature-text">{{about.discri}}</p>
+                   
+                    </div>
+                </div>
+              {%endfor%}
+            </div>
+            
+            
+        </div>
+    </section>
+</section>
+{%endblock%}

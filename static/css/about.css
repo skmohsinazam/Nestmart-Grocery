@@ -1,0 +1,53 @@
+.hero-section {
+    padding: 50px 0;
+}
+.hero-text h1 {
+    font-size: 48px;
+    font-weight: bold;
+    color: #2b2b2b;
+}
+.hero-text p {
+    font-size: 18px;
+    color: #888;
+}
+.hero-image img {
+    border-radius: 8px;
+    width: 100%;
+    height: auto;
+}
+.feature-card {
+   
+    border: none;
+    text-align: center;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    margin-bottom: 20px;
+}
+.feature-icon img {
+    width: 50px;
+    height: 50px;
+    margin-bottom: 15px;
+}
+.feature-title {
+    font-size: 20px;
+    font-weight: bold;
+    color: #2b2b2b;
+}
+.feature-text {
+    font-size: 14px;
+    color: #888;
+    margin-bottom: 20px;
+}
+.read-more {
+    font-size: 14px;
+    color: #00b894;
+    text-decoration: none;
+}
+.read-more:hover {
+    text-decoration: underline;
+    color: #00b894;
+}
+.about-1 p{
+    text-align: center;
+}

@@ -1,0 +1,57 @@
+{%extends "base.html"%}
+{%block content %}
+
+    <section class=" mt-4">
+      <div class="frmm-body">
+
+        <form action="/register/" method="post" enctype="multipart/form-data">
+          
+          {% if messages %}
+          {% for message in messages %}
+              <div class="alert alert-success">{{ message }}</div>
+          {% endfor %}
+         {% endif %}
+
+          {% csrf_token %}
+          <h2 class="hh2">Register</h2>
+    
+          <label class="llabel" for="fullName">Full Name:</label>
+          <input type="text" id="fullName" name="full_name" class="regg-inp" required>
+          
+          <label for="email" class="llabel">Email:</label>
+          <input type="email" id="email" name="email" class="regg-inp" required>
+
+          <label for="phone" class="llabel">Phone Number:</label>
+          <input type="tel" id="phone" name="phone" pattern="[0-9]{10}" class="regg-inp" required>
+
+          <label for="password" class="llabel">Password:</label>
+          <input type="password" id="password" name="password" minlength="8" class="regg-inp" required>
+          <label for="password" class="llabel">Confirm Password:</label>
+          <input type="password" id="password" name="password1" minlength="8" class="regg-inp" required>
+
+          <label for="dob" class="llabel">Date of Birth:</label>
+          <input type="date" id="dob" name="dob" class="regg-inp" required>
+
+          <label for="gender" class="llabel">Gender:</label>
+          <select id="gender" name="gender" class="gendr" required>
+              <option value="">Select Gender</option>
+              <option value="male">Male</option>
+              <option value="female">Female</option>
+              <option value="other">Other</option>
+          </select>
+
+          <label for="address" class="llabel">Address:</label>
+          <textarea id="address" name="address" class="addrs textarea" required></textarea>
+
+          <label for="imgUpload" class="llabel">Attach Image:</label>
+          <input type="file" id="imgUpload" name="image" class="regg-inp iinput" accept="image/*" required>
+
+          <button type="submit" class="bbutton">Register</button>
+      </form>
+        </div>
+
+      </section>
+        
+        
+  </section>
+{%endblock%}

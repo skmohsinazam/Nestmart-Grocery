@@ -1,0 +1,18 @@
+body {
+    background-color: #f8f9fa;
+}
+.contact-container {
+    max-width: 800px;
+    margin: 30px auto;
+    background: #ffffff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+}
+.btn-primary {
+    background-color: #28a745;
+    border-color: #28a745;
+}
+.btn-primary:hover {
+    background-color: #218838;
+}

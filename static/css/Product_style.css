@@ -1,0 +1,93 @@
+
+/* General styling */
+body {
+font-family: Arial, sans-serif;
+
+flex-direction: column;
+align-items: center;
+background-color: #f5f5f5;
+margin: 0;
+}
+.product-imagee {
+  height: 300px;
+  width: 350px;
+
+  }
+  
+.product-page {
+display: flex;
+background-color: #fff;
+padding: 30px;
+border-radius: 10px;
+box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+width: 100%;
+
+}
+
+/* Additional Content Sections */
+.product-specifications,.related-products {
+width: 100%;
+margin-top: 20px;
+background-color: #fff;
+padding: 20px;
+border-radius: 10px;
+box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.product-specifications h2,.related-products h2 {
+font-size: 1.5rem;
+color: #333;
+margin-bottom: 10px;
+}
+
+/* Specifications List */
+.product-specifications ul {
+list-style-type: none;
+padding: 0;
+}
+
+.product-specifications li {
+margin-bottom: 8px;
+font-size: 1rem;
+color: #555;
+}
+
+
+
+.review-container .review {
+    padding-bottom: 15px;
+    margin-bottom: 15px;
+}
+
+.review-container .review h5 {
+    font-size: 18px;
+    margin-bottom: 5px;
+}
+
+.review-container .review .text-warning {
+    color: #ffc107;
+}
+
+.review-container .review p {
+    margin: 0;
+    font-size: 16px;
+}
+
+
+/* Related Products */
+.related-products {
+display: flex;
+gap: 20px;
+}
+
+.related-product-card {
+flex: 1;
+background-color: #f9f9f9;
+padding: 20px;
+border-radius: 8px;
+box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+text-align: center;
+font-size: 1rem;
+color: #333;
+}
+

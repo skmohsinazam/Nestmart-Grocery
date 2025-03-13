@@ -1,0 +1,56 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+
+  .frmm-body {
+    border: 1px solid #000000;
+    max-width: 500px;
+    margin: auto;
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .hh2 {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  .llabel {
+    display: block;
+    margin-bottom: 8px;
+  }
+  
+  .regg-inp, .gendr, .addrs {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #000000;
+    border-radius: 4px;
+  }
+  
+  .bbutton {
+    width: 100%;
+    padding: 10px;
+    background-color: #28a745;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  .bbutton:hover {
+    background-color: #218838;
+  }
+  
+  .iinput[type="file"] {
+    padding: 0;
+  }
+  
+  .textarea {
+    resize: vertical;
+  }
+  

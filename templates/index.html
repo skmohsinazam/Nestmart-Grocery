@@ -1,0 +1,180 @@
+{%extends "base.html"%}
+{%block content %}
+
+    <!-- carousel -->
+  <section>
+     <div class="container-fluid">
+     <div class="carousell">
+    <div class="carousell-inner">
+        <div class="carousell-item">
+            <img src="/static/images/slider-1.png" alt="Fresh Produce" />
+            <div class="carousell-content">
+                <h1>Don’t miss amazing grocery deals</h1>
+                <p>Save up to 50%</p>
+                <form class="subscribee-form" action="" method="POST">
+                  {% csrf_token %}
+                    <input type="email" placeholder="Enter Email..." name="email" required>
+                    <button type="submit">Subscribe</button>
+                </form>
+            </div>
+        </div>
+        <div class="carousell-item">
+            <img src="/static/images/slider-2.png" alt="Organic Vegetables" />
+            <div class="carousell-content">
+                <h1>Organic, Fresh & Affordable</h1>
+                <p>Enjoy healthy food at a discount</p>
+                <form class="subscribee-form" action="" method="POST">
+                  {% csrf_token %}
+                    <input type="email" placeholder="Enter Email..." name="email" required>
+                    <button type="submit">Subscribe</button>
+                </form>
+            </div>
+        </div>
+    </div>
+    <button class="carousell-btn prev">❮</button>
+    <button class="carousell-btn next">❯</button>
+</div>
+
+    </div>
+    
+  </section>
+  <section class="container-fluid owl-m">
+    <div class="d-flex">
+      <p class="fw-bold mx-2 display-6 mx-4">Featured Catogories</p>
+    </div>
+    <div class="container-fluid row mx-1 justify-content-evenly">
+      {%for cate in  Category%}
+        <div class="item col-6 col-md-4 col-lg-2 my-2 ">
+          
+    <a href="{% url 'cate_shop' slug=cate.slug %}" class="text-decoration-none">
+
+              <div class="category-card">
+                  <img src="{{cate.image.url}}" alt="{{cate.title}}">
+                  <p class="cate-txt">{{cate.title}}</p>
+              </div>
+       
+          </a>
+          </div>
+        {%endfor%}
+    
+
+  </div>
+    <div class="row my-2">
+
+    <div class="col-12 col-sm-1 col-md-4 col-lg-4 mb-2"><a href="shop_page.php" class="text-decoration-none"><img src="/static/images/banner1.jpg" alt="" class="img-fluid rounded"></a></div>
+    <div class="col-12 col-sm-1 col-md-4 col-lg-4 mb-2"><a href="shop_page.php" class="text-decoration-none"><img src="/static/images/banner2.jpg" alt="" class="img-fluid rounded"></a></div>
+    <div class="col-12 col-sm-1 col-md-4 col-lg-4 mb-2"><a href="shop_page.php" class="text-decoration-none"><img src="/static/images/banner3.jpg" alt="" class="img-fluid rounded"></a></div>
+      </>
+    </div>
+    <div class="d-flex row">
+      <div class="col-5">
+        <p class="fw-bold mx-2 display-6 mx-4">Featured Products</p>
+      </div>
+      </div>
+</div>
+<div class="row">
+    <div class="col-12">
+        <div class="owll-carousel owl-carousel owl-theme">
+            {% if Products %}
+    {% for product in Products %}
+    <a href="{% url 'product_detail' product.id %}" class="text-decoration-none">
+     
+        <div class="owll-item">
+          <div class="owll-product-card card">
+            {% if product.pdiscpri %}
+              <div class="owll-discount-tag badge bg-danger position-absolute">
+                
+              </div>
+            {% endif %}
+            <img src="{{ product.pimg.url }}" alt="{{ product.pname }}" class="card-img-top owll-product-image">
+            <div class="card-body text-center owll-product-details">
+              <h5 class="card-title owll-product-name text-truncate">{{ product.pname }}</h5>
+              <div class="owll-price">
+                <span class="owll-current-price h5 text-success">₹{{ product.pdiscpri|default:product.pprice }}</span>
+                {% if product.pdiscpri %}
+                  <span class="owll-old-price text-muted ms-2 text-decoration-line-through">₹{{ product.pprice }}</span>
+                {% endif %}
+              </div>
+            </div>
+          </div>
+        </div>
+      </a>
+    {% endfor %}
+  {% else %}
+    <p class="text-center">No products available.</p>
+  {% endif %}
+        </div>
+    </div>
+</div>     
+        </div>
+        <div class="row row1">
+          <!-- Recently Added -->
+          <div class="col-md-4">
+    <h3 class="category-title">Recently Added</h3>
+    {%for items in Recen%}
+    
+      <a href="{% url 'product_detail' items.id %}" class="text-decoration-none">
+
+        <div class="card1 mb-4">
+        <img src="{{items.pimg.url}}" alt="{{items.pname}}" class="card-img-top owll-product-image">
+            <div class="card-body">
+                <h5 class="product-title">{{items.pname}}</h5>
+                <div class="rating">★★★★☆ (21)</div> <!-- Static for now -->
+                <p>
+                    <span class="product-price">₹{{items.pdiscpri}}</span>
+                    <span class="old-price">₹{{items.pprice}}</span>
+                </p>
+            </div>
+        </div>
+        </a>
+  {%endfor%}
+</div>
+  <!-- Trending Products -->
+  <div class="col-md-4">
+    <h3 class="category-title">Trending Products</h3>
+    
+    {%for items in Trend%}
+    <a href="{% url 'product_detail' items.id %}" class="text-decoration-none">
+
+
+        <div class="card1 mb-4">
+        <img src="{{items.pimg.url}}" alt="{{items.pname}}" class="card-img-top owll-product-image">
+            <div class="card-body">
+                <h5 class="product-title">{{items.pname}}</h5>
+                <div class="rating">★★★★☆ (21)</div> <!-- Static for now -->
+                <p>
+                    <span class="product-price">₹{{items.pdiscpri}}</span>
+                    <span class="old-price">₹{{items.pprice}}</span>
+                </p>
+            </div>
+        </div>
+        </a>
+  {%endfor%}
+</div>
+          <!-- Top Rated -->
+          <div class="col-md-4">
+    <h3 class="category-title">Top Rated</h3>
+    {%for items in Top%}
+    <a href="{% url 'product_detail' items.id %}" class="text-decoration-none">
+
+
+        <div class="card1 mb-4">
+        <img src="{{items.pimg.url}}" alt="{{items.pname}}" class="card-img-top owll-product-image">
+            <div class="card-body">
+                <h5 class="product-title">{{items.pname}}</h5>
+                <div class="rating">★★★★☆ (21)</div> <!-- Static for now -->
+                <p>
+                    <span class="product-price">₹{{items.pdiscpri}}</span>
+                    <span class="old-price">₹{{items.pprice}}</span>
+                </p>
+            </div>
+        </div>
+        </a>
+  {%endfor%}
+
+</div>
+      </div>
+
+{%endblock%}
+
+

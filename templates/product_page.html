@@ -1,0 +1,75 @@
+{% extends "base.html" %}
+{% block content %}
+
+<body>
+<div class="container-fluid">
+    <div class="row">
+        <!-- Image Display -->
+        <div class="col-md-5 d-flex justify-content-center">
+            <img src="{{ product.pimg.url }}" alt="{{ product.pname }}" class="product-imagee mt-3 img-fluid rounded">
+        </div>
+
+        <!-- Product Details -->
+        <div class="col-md-7 mt-2">
+            <h3>{{ product.pname }}</h3>
+
+            <!-- Price Display -->
+            <div class="price">
+                <h3 class="text-danger">₹{{ product.pdiscpri|floatformat:2 }}</h3>
+                {% if product.pdiscpri < product.pprice %}
+    <small class="text-muted"><del>₹{{ product.pprice|floatformat:2 }}</del></small>
+    <span class="badge bg-success ms-2">{{ discount_percentage }}% off</span>
+{% endif %}
+            </div>
+
+            <!-- Product Description -->
+            <div class="product-description mt-3">
+                <p>{{ product.pdescription }}</p>
+            </div>
+
+            <!-- Buttons -->
+            <div class="button-group mt-5">
+                <!-- <a href="#" class="text-decoration-none">
+                    <button class="btn btn-success btn-lg" style="background-color:#0ca838;">BUY NOW</button>
+                </a> -->
+                <a href="{% url 'add_to_cart' product.id %}" class="btn btn-success btn-lg shadow-lg  hover-shadow" style="background-color:#0ca838;">Add to Cart</a>
+
+            </div>
+        </div>
+    </div>
+
+    <!-- Customer Reviews Section -->
+    <div class="customer-reviews mt-5">
+        <h2>Customer Reviews</h2>
+        <div class="review-container">
+            <!-- Example Reviews -->
+            <div class="review border-bottom pb-3 mb-3">
+                <h5>Alex Johnson</h5>
+                <span class="text-warning">★★★★☆</span>
+                <p>Very satisfied with the product quality and quick delivery. Highly recommended!</p>
+            </div>
+            <div class="review border-bottom pb-3 mb-3">
+                <h5>Sarah Williams</h5>
+                <span class="text-warning">★★★☆☆</span>
+                <p>Decent product but expected a bit more in terms of battery life.</p>
+            </div>
+            <div class="review border-bottom pb-3 mb-3">
+                <h5>Michael Brown</h5>
+                <span class="text-warning">★★★★★</span>
+                <p>Exceeded my expectations! The build quality is superb, and performance is top-notch.</p>
+            </div>
+            <div class="review border-bottom pb-3 mb-3">
+                <h5>Linda White</h5>
+                <span class="text-warning">★★★★☆</span>
+                <p>Great value for the price. Customer support was also very helpful.</p>
+            </div>
+            <div class="review border-bottom pb-3 mb-3">
+                <h5>Chris Green</h5>
+                <span class="text-warning">★★☆☆☆</span>
+                <p>The design looks good, but the product has some minor flaws. Still considering returning it.</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

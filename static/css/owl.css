@@ -1,0 +1,76 @@
+/* Product Card Styling */
+.owll-product-card {
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    overflow: hidden;
+    height: 100%;
+}
+
+.owll-product-card:hover {
+    transform: scale(1.03);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* Ensure image fits inside the box */
+.owll-product-image {
+    max-height: 200px; /* Adjust based on design */
+    width: 100%;
+    object-fit: contain; /* Ensures no cropping */
+    background-color: #f9f9f9; /* Optional: background for padding area */
+}
+
+.owll-product-details {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 100%;
+}
+
+.owll-product-name {
+    font-size: 1rem;
+    font-weight: bold;
+    margin: 10px 0 5px;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+.owll-price {
+    font-size: 1rem;
+    margin: 5px 0;
+}
+
+.owll-current-price {
+    font-weight: bold;
+    color: #28a745;
+}
+
+.owll-old-price {
+    font-size: 0.85rem;
+}
+
+.owll-buy-now {
+    font-size: 0.9rem;
+    border-radius: 4px;
+    padding: 6px 12px;
+    transition: background-color 0.3s ease;
+    background-color: #007bff;
+    color: #fff;
+}
+
+.owll-buy-now:hover {
+    background-color: #0056b3;
+}
+
+.owll-discount-tag {
+    padding: 5px;
+    font-size: 0.8rem;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .owll-product-card {
+        margin: 10px 0;
+    }
+}
