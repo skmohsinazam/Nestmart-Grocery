@@ -11,6 +11,8 @@ https://docs.djangoproject.com/en/5.1/ref/settings/
 """
 from pathlib import Path
 import os
+import dj_database_url
+
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 MEDIA_URL = '/media/'
@@ -76,17 +78,6 @@ WSGI_APPLICATION = 'nestmart_grocery.wsgi.application'
 # https://docs.djangoproject.com/en/5.1/ref/settings/#databases
 
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'nestmart',
-        'USER': 'nestmart_user',
-        'PASSWORD': 'jS1lMinPy5xFWNlJqaR5UQk9v4gRXQ84',
-        'HOST': 'dpg-cvh4pian91rc73atch4g-a',
-        'PORT': '5432',  # Default PostgreSQL port
-    }
-}
-
 
 # Password validation
 # https://docs.djangoproject.com/en/5.1/ref/settings/#auth-password-validators
@@ -106,6 +97,9 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
+DATABASES = {
+    'default': dj_database_url.config(default="postgresql://nestmart_user:jS1lMinPy5xFWNlJqaR5UQk9v4gRXQ84@dpg-cvh4pian91rc73atch4g-a/nestmart")
+}
 
 # Internationalization
 # https://docs.djangoproject.com/en/5.1/topics/i18n/
