@@ -26,7 +26,8 @@ SECRET_KEY = 'django-insecure-c50ab2adad%!o+qin4ugp^@d2y9=+9*s+i@nvz(@r(yeoc6z$m
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['nestmart.onrender.com', '127.0.0.1', 'localhost']
+
 
 
 # Application definition
