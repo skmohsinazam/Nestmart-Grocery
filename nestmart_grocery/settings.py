@@ -100,7 +100,7 @@ AUTH_PASSWORD_VALIDATORS = [
 ]
 
 DATABASES = {
-    'default': dj_database_url.config(default="postgresql://nestmart_user:jS1lMinPy5xFWNlJqaR5UQk9v4gRXQ84@dpg-cvh4pian91rc73atch4g-a/nestmart")
+    'default': dj_database_url.config(default="postgresql://nestmart_user:jS1lMinPy5xFWNlJqaR5UQk9v4gRXQ84@dpg-cvh4pian91rc73atch4g-a.oregon-postgres.render.com/nestmart")
 }
 
 # Internationalization
