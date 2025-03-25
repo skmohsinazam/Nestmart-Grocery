@@ -76,10 +76,15 @@ WSGI_APPLICATION = 'nestmart_grocery.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/5.1/ref/settings/#databases
 
+
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'nestmart',
+        'USER': 'nestmart_user',
+        'PASSWORD': 'jS1lMinPy5xFWNlJqaR5UQk9v4gRXQ84',
+        'HOST': 'dpg-cvh4pian91rc73atch4g-a',
+        'PORT': '5432',  # Default PostgreSQL port
     }
 }
 
